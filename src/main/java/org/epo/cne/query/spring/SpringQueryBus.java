@@ -3,7 +3,6 @@ package org.epo.cne.query.spring;
 import org.epo.cne.sharedkernel.query.Query;
 import org.epo.cne.sharedkernel.query.core.QueryBus;
 import org.epo.cne.sharedkernel.query.core.QueryHandler;
-import org.springframework.context.annotation.Bean;
 
 /**
  * Implementation of a query bus backed by Spring's registry.
