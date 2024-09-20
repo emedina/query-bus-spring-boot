@@ -1,7 +1,7 @@
 package com.emedina.query.spring;
 
-import org.epo.cne.sharedkernel.query.Query;
-import org.epo.cne.sharedkernel.query.core.QueryHandler;
+import com.emedina.sharedkernel.query.Query;
+import com.emedina.sharedkernel.query.core.QueryHandler;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.GenericTypeResolver;
 

@@ -1,8 +1,8 @@
 package com.emedina.query.spring;
 
-import org.epo.cne.sharedkernel.query.Query;
-import org.epo.cne.sharedkernel.query.core.QueryBus;
-import org.epo.cne.sharedkernel.query.core.QueryHandler;
+import com.emedina.sharedkernel.query.Query;
+import com.emedina.sharedkernel.query.core.QueryBus;
+import com.emedina.sharedkernel.query.core.QueryHandler;
 
 /**
  * Implementation of a query bus backed by Spring's registry.
