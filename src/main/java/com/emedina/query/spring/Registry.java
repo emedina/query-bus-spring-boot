@@ -1,4 +1,4 @@
-package org.epo.cne.query.spring;
+package com.emedina.query.spring;
 
 import org.epo.cne.sharedkernel.query.Query;
 import org.epo.cne.sharedkernel.query.core.QueryHandler;
@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * A registry that holds the mapping between a query and its handler using Spring's {@link ApplicationContext}.
  *
- * @author Enrique Medina Montenegro (em54029)
+ * @author Enrique Medina Montenegro
  * @see QueryHandler
  */
 public final class Registry {

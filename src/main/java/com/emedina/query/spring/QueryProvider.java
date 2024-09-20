@@ -1,4 +1,4 @@
-package org.epo.cne.query.spring;
+package com.emedina.query.spring;
 
 import org.epo.cne.sharedkernel.query.core.QueryHandler;
 import org.springframework.context.ApplicationContext;
@@ -7,7 +7,7 @@ import org.springframework.context.ApplicationContext;
  * Creates a query handler that makes use of Spring's dependency injection capabilities.
  *
  * @param <H> type of the query handler
- * @author Enrique Medina Montenegro (em54029)
+ * @author Enrique Medina Montenegro
  */
 @SuppressWarnings("unchecked")
 class QueryProvider<H extends QueryHandler<?, ?>> {

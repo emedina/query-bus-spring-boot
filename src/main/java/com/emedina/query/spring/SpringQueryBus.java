@@ -1,4 +1,4 @@
-package org.epo.cne.query.spring;
+package com.emedina.query.spring;
 
 import org.epo.cne.sharedkernel.query.Query;
 import org.epo.cne.sharedkernel.query.core.QueryBus;
@@ -7,7 +7,7 @@ import org.epo.cne.sharedkernel.query.core.QueryHandler;
 /**
  * Implementation of a query bus backed by Spring's registry.
  *
- * @author Enrique Medina Montenegro (em54029)
+ * @author Enrique Medina Montenegro
  */
 public class SpringQueryBus implements QueryBus {
 
