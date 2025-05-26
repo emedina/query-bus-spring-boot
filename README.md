@@ -2,22 +2,34 @@
 
 A lightweight query bus implementation for Spring Boot applications that enables centralized query handling using Spring's dependency injection capabilities.
 
-## 🚀 Recent Upgrades (v1.0.0)
+## 📚 Further Learning
 
-### ✅ JDK 24 & Latest Dependencies
+This implementation is part of a comprehensive exploration of Hexagonal Architecture patterns. The concepts are covered in depth in:
 
-- **Java**: Upgraded to **JDK 24** (GA release March 2025)
-- **Spring Framework BOM**: 6.1.13 → **6.2.1** (latest GA)
-- **Maven Compiler Plugin**: 3.12.1 → **3.13.0**
-- **Maven Surefire Plugin**: **3.5.2** (latest GA)
-- **Versions Maven Plugin**: 2.17.1 → **2.18.0**
+**English Version**
+*Decoupling by Design: A Pragmatic Approach to Hexagonal Architecture*
 
-### 🧪 Comprehensive Testing
+- [PDF](https://leanpub.com/decouplingbydesignapractitionersguidetohexagonalarchitecture)  
+- [Kindle](https://a.co/d/4KwauyK)  
+- [Paperback](https://a.co/d/cGQI8gX)  
 
-- **90%+ Test Coverage**: Added extensive unit tests for all components
-- **Modern Testing**: JUnit 5, AssertJ, Mockito with proper fixtures
-- **Quality Assurance**: Edge cases, null handling, and error scenarios covered
-- **JaCoCo Integration**: Automated coverage reporting
+**Versión en Español**  
+*Desacoplamiento por Diseño: Una Guía Práctica para la Arquitectura Hexagonal*
+
+- [PDF](https://leanpub.com/desacoplamientopordiseounaguaprcticaparalaarquitecturahexagonal)  
+- [Kindle](https://amzn.eu/d/ic50CoH)  
+- [Tapa blanda](https://amzn.eu/d/1fHOpN6)  
+
+The book provides in-depth coverage of:
+
+- Spring Boot query bus implementations and patterns
+- Type-safe query routing with return values
+- Automatic handler discovery techniques
+- Spring integration strategies for query handling
+- Query pattern variations in CQRS systems
+- Hexagonal architecture for data retrieval
+- Testing strategies for query-driven systems
+- Real-world query bus implementations
 
 ## 🎯 Overview
 
