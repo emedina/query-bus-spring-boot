@@ -13,6 +13,7 @@ import org.springframework.context.ApplicationContext;
 
 import com.emedina.query.spring.fixtures.AnotherTestQuery;
 import com.emedina.query.spring.fixtures.AnotherTestQueryHandler;
+import com.emedina.query.spring.fixtures.RawTypeQueryHandler;
 import com.emedina.query.spring.fixtures.TestQuery;
 import com.emedina.query.spring.fixtures.TestQueryHandler;
 import com.emedina.sharedkernel.query.core.QueryHandler;
@@ -31,6 +32,7 @@ class RegistryTest {
 
     private Registry registry;
 
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     private void setupWithHandlers() {
         // given - mock application context to return query handler beans
         when(applicationContext.getBeanNamesForType(QueryHandler.class))
@@ -47,6 +49,7 @@ class RegistryTest {
             .thenReturn(new AnotherTestQueryHandler());
     }
 
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     private void setupWithTestHandlerOnly() {
         // given - mock application context to return only test query handler
         when(applicationContext.getBeanNamesForType(QueryHandler.class))
@@ -126,8 +129,7 @@ class RegistryTest {
     @DisplayName("should return null when no handler registered for query type")
     void shouldReturnNullWhenNoHandlerRegisteredForQueryType() {
         // given
-        when(applicationContext.getBeanNamesForType(QueryHandler.class))
-            .thenReturn(new String[] {});
+        setupWithoutHandlers();
         registry = new Registry(applicationContext);
 
         // when & then
@@ -139,8 +141,7 @@ class RegistryTest {
     @DisplayName("should handle empty application context")
     void shouldHandleEmptyApplicationContext() {
         // given
-        when(applicationContext.getBeanNamesForType(QueryHandler.class))
-            .thenReturn(new String[] {});
+        setupWithoutHandlers();
 
         // when
         registry = new Registry(applicationContext);
@@ -151,4 +152,37 @@ class RegistryTest {
         assertThatThrownBy(() -> registry.get(AnotherTestQuery.class))
             .isInstanceOf(NullPointerException.class);
     }
+
+    @Test
+    @DisplayName("should throw IllegalStateException when handler has no generic type information")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+    void shouldThrowIllegalStateExceptionWhenHandlerHasNoGenericTypeInformation() {
+        // given
+        when(applicationContext.getBeanNamesForType(QueryHandler.class))
+            .thenReturn(new String[] { "rawTypeQueryHandler" });
+        when(applicationContext.getType("rawTypeQueryHandler"))
+            .thenReturn((Class) RawTypeQueryHandler.class);
+
+        // when & then
+        assertThatThrownBy(() -> new Registry(applicationContext))
+            .isInstanceOf(IllegalStateException.class)
+            .hasMessageContaining("Could not resolve query type for handler: rawTypeQueryHandler");
+    }
+
+    @Test
+    @DisplayName("should throw IllegalStateException when generic type resolution returns null")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+    void shouldThrowIllegalStateExceptionWhenGenericTypeResolutionReturnsNull() {
+        // given
+        when(applicationContext.getBeanNamesForType(QueryHandler.class))
+            .thenReturn(new String[] { "rawTypeQueryHandler" });
+        when(applicationContext.getType("rawTypeQueryHandler"))
+            .thenReturn((Class) RawTypeQueryHandler.class);
+
+        // when & then
+        assertThatThrownBy(() -> new Registry(applicationContext))
+            .isInstanceOf(IllegalStateException.class)
+            .hasMessage("Could not resolve query type for handler: rawTypeQueryHandler");
+    }
+
 }

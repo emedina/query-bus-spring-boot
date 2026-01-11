@@ -16,7 +16,7 @@ import java.util.Map;
  */
 public final class Registry {
 
-    private Map<Class<? extends Query>, QueryProvider> providerMap = new HashMap<>();
+    private final Map<Class<? extends Query>, QueryProvider<?>> providerMap = new HashMap<>();
 
     /**
      * Constructor-based dependency injection.
@@ -36,17 +36,23 @@ public final class Registry {
      * @param applicationContext Spring's application context
      * @param name               of the bean as a query handler
      */
+    @SuppressWarnings("unchecked")
     private void register(final ApplicationContext applicationContext, final String name) {
         Class<QueryHandler<?, ?>> handlerClass = (Class<QueryHandler<?, ?>>) applicationContext.getType(name);
         Class<?>[] generics = GenericTypeResolver.resolveTypeArguments(handlerClass, QueryHandler.class);
-        Class<? extends Query> queryType = (Class<? extends Query>) generics[1];
 
-        this.providerMap.put(queryType, new QueryProvider(applicationContext, handlerClass));
+        if (generics == null || generics.length < 2) {
+            throw new IllegalStateException("Could not resolve query type for handler: " + name);
+        }
+
+        Class<? extends Query> queryType = (Class<? extends Query>) generics[1];
+        this.providerMap.put(queryType, new QueryProvider<>(applicationContext, handlerClass));
     }
 
     @SuppressWarnings("unchecked")
     <R, Q extends Query> QueryHandler<R, Q> get(final Class<Q> queryClass) {
-        return this.providerMap.get(queryClass).get();
+        QueryProvider<?> provider = this.providerMap.get(queryClass);
+        return (QueryHandler<R, Q>) provider.get();
     }
 
 }

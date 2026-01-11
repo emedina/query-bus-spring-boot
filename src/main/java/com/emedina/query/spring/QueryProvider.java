@@ -9,7 +9,6 @@ import org.springframework.context.ApplicationContext;
  * @param <H> type of the query handler
  * @author Enrique Medina Montenegro
  */
-@SuppressWarnings("unchecked")
 class QueryProvider<H extends QueryHandler<?, ?>> {
 
     private final ApplicationContext applicationContext;
