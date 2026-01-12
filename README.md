@@ -1,7 +1,7 @@
 # 🔍 Spring Query Bus
 
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
-![Java Version](https://img.shields.io/badge/Java-24-blue)
+![Java Version](https://img.shields.io/badge/Java-25-blue)
 ![Test Coverage](https://img.shields.io/badge/coverage-90%25-brightgreen)
 
 A lightweight query bus implementation for Spring Boot applications that enables centralized query handling using Spring's dependency injection capabilities.
@@ -74,7 +74,7 @@ Add the dependency to your `pom.xml`:
 <dependency>
     <groupId>org.springframework</groupId>
     <artifactId>spring-context</artifactId>
-    <version>6.2.1</version>
+    <version>7.0.2</version>
 </dependency>
 ```
 
@@ -219,20 +219,20 @@ src/test/java/com/emedina/query/spring/
 
 | Dependency | Version | Purpose |
 |------------|---------|---------|
-| **Spring Framework BOM** | 6.2.1 | Core Spring integration |
-| **Java** | 24 | Runtime platform |
+| **Spring Framework BOM** | 7.0.2 | Core Spring integration |
+| **Java** | 25 | Runtime platform |
 | **Shared Kernel Query Bus** | 1.0.0 | Query interfaces |
-| **JUnit Jupiter** | 5.11.3 | Testing framework |
-| **AssertJ** | 3.26.3 | Fluent assertions |
-| **Mockito** | 5.14.2 | Mocking framework |
+| **JUnit Jupiter** | 6.0.2 | Testing framework |
+| **AssertJ** | 3.27.6 | Fluent assertions |
+| **Mockito** | 5.21.0 | Mocking framework |
 
 ## 🔧 Development
 
 ### Requirements
 
-- **JDK 24** or higher
+- **JDK 25** or higher
 - **Maven 3.9+**
-- **Spring Framework 6.2+**
+- **Spring Framework 7.0+**
 
 ### Building
 
@@ -265,7 +265,7 @@ mvn versions:display-plugin-updates
 
 | Query Bus Spring | Min JDK | Spring Framework | Shared Kernel | Notes |
 |------------------|---------|------------------|---------------|-------|
-| 1.0.x            | 24      | 6.2.0+          | 1.0.0+        | Current |
+| 1.0.x            | 25      | 7.0.0+          | 1.0.0+        | Current |
 
 ## 🤝 Contributing
 
@@ -294,7 +294,7 @@ This project is part of the hexagonal architecture examples and follows the same
 
 ## 🏷️ Tags
 
-`spring-boot` `query-bus` `cqrs` `hexagonal-architecture` `ddd` `query-pattern` `spring-framework` `dependency-injection` `java-24`
+`spring-boot` `query-bus` `cqrs` `hexagonal-architecture` `ddd` `query-pattern` `spring-framework` `dependency-injection` `java-25`
 
 ---
 
