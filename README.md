@@ -54,7 +54,7 @@ Add the dependency to your `pom.xml`:
 
 ```xml
 <dependency>
-    <groupId>com.emedina.query</groupId>
+    <groupId>io.github.emedina</groupId>
     <artifactId>query-bus-spring-boot</artifactId>
     <version>1.0.0</version>
 </dependency>
@@ -65,7 +65,7 @@ Add the dependency to your `pom.xml`:
 ```xml
 <!-- Core shared kernel -->
 <dependency>
-    <groupId>com.emedina.sharedkernel</groupId>
+    <groupId>io.github.emedina</groupId>
     <artifactId>shared-kernel-query-bus</artifactId>
     <version>1.0.0</version>
 </dependency>

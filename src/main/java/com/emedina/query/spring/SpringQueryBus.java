@@ -1,5 +1,7 @@
 package com.emedina.query.spring;
 
+import org.springframework.context.annotation.Bean;
+
 import com.emedina.sharedkernel.query.Query;
 import com.emedina.sharedkernel.query.core.QueryBus;
 import com.emedina.sharedkernel.query.core.QueryHandler;
